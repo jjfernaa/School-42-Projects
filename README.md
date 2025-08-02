@@ -84,7 +84,7 @@ En 42, los estudiantes actúan por su propio éxito dentro de un currículum 100
 
 [![GitHub](https://img.shields.io/badge/GitHub-jjfernaa-181717?style=flat&logo=github&logoColor=white)](https://github.com/jjfernaa)
 [![42 Profile](https://img.shields.io/badge/42-jjfernaa-000000?style=flat&logo=42&logoColor=white)](#)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Juan_Fernández-0A66C2?style=flat&logo=linkedin&logoColor=white)](#)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Juan_Fernández-0A66C2?style=flat&logo=linkedin&logoColor=white)](www.linkedin.com/in/juan-fernández-)
 
 ---
 
