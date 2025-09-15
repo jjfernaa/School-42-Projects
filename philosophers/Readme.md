@@ -1,4 +1,8 @@
+<div align="center">
+  
 # 🍽️ Philosophers
+
+</div>
 
 <div align="center">
   <img src="https://img.shields.io/badge/Score-125%2F100-success?style=for-the-badge&logo=42" alt="42 Score"/>
