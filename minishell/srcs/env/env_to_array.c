@@ -1,0 +1,75 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env_to_array.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: juan-jof <juan-jof@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/24 20:24:01 by juan-jof          #+#    #+#             */
+/*   Updated: 2025/09/24 20:24:02 by juan-jof         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "env.h"
+
+static int	env_size(t_env *env)
+{
+	int	count;
+
+	count = 0;
+	while (env)
+	{
+		if (env->key && env->value)
+			count++;
+		env = env->next;
+	}
+	return (count);
+}
+
+static char	*create_envp_line(t_env *env, char **envp)
+{
+	char	*joined_key_equal;
+	char	*envp_line;
+
+	joined_key_equal = ft_strjoin(env->key, "=");
+	if (!joined_key_equal)
+	{
+		free_array(envp);
+		return (NULL);
+	}
+	envp_line = ft_strjoin(joined_key_equal, env->value);
+	if (!envp_line)
+	{
+		free(joined_key_equal);
+		free_array(envp);
+		return (NULL);
+	}
+	free(joined_key_equal);
+	return (envp_line);
+}
+
+char	**env_to_array(t_env *env)
+{
+	char	**envp;
+	int		size;
+	int		i;
+
+	size = env_size(env);
+	envp = malloc(sizeof(char *) * (size + 1));
+	if (!envp)
+		return (NULL);
+	i = 0;
+	while (env)
+	{
+		if (env->key && env->value)
+		{
+			envp[i] = create_envp_line(env, envp);
+			if (!envp[i])
+				return (NULL);
+			i++;
+		}
+		env = env->next;
+	}
+	envp[i] = NULL;
+	return (envp);
+}
